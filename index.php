@@ -9,7 +9,7 @@
         body, html {
             height: 100%;
             margin: 0;
-            display:flexbox;
+            display: flex; /* Corrected to flex */
             justify-content: center;
             align-items: center;
             background-color: #f0f0f0;
@@ -17,18 +17,21 @@
 
         .container {
             background-color: white;
-            padding: 20px;
+            padding: 40px 50px; /* Increased padding for more rectangular shape */
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 100%;
+            max-width: 600px; /* Increased max width for more rectangle shape */
+            min-width: 400px; /* Set a minimum width to keep the rectangle consistent */
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px; /* Slightly more space between form elements */
         }
 
         input {
-            padding: 10px;
+            padding: 12px; /* Increased padding for better input appearance */
             width: 100%;
             box-sizing: border-box;
             border: 1px solid #ccc;
@@ -36,12 +39,13 @@
         }
 
         button {
-            padding: 10px 20px;
+            padding: 12px 20px; /* Increased button padding */
             background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            width: 100%;
         }
 
         button:hover {
@@ -49,7 +53,7 @@
         }
 
         .redirect {
-            margin-top: 15px;
+            margin-top: 20px; /* Increased spacing for better visual balance */
         }
 
         #changeButton {
@@ -57,10 +61,10 @@
             top: 80%;
             left: 50%;
             transform: translate(-50%, -50%);
-            padding: 10px 1px;
+            padding: 12px 20px;
             font-size: 16px;
             cursor: pointer;
-            width: 500px;
+            width: auto;
         }
     </style>
 </head>
