@@ -11,11 +11,15 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userName = $_POST['UserName'];
+    // Sanitize user inputs to avoid SQL Injection
+    $userName = $conn->real_escape_string($_POST['UserName']);
     $password = $_POST['Password'];
 
-    $sql = "SELECT * FROM registration WHERE UserName = '$userName'";
-    $result = $conn->query($sql);
+    // Prepare the SQL query with a prepared statement
+    $stmt = $conn->prepare("SELECT * FROM registration WHERE UserName = ?");
+    $stmt->bind_param("s", $userName);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
@@ -27,6 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Username not found.";
     }
+
+    // Close the prepared statement
+    $stmt->close();
 }
 
 $conn->close();
