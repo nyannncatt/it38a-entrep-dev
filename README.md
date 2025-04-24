@@ -1,1 +1,1 @@
-# it38a-entrep-dev
+---My teammate didnt do anything today, didnt event bothered to approach whole time
